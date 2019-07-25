@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D魔方</title>
+		<link rel="shortcut icon" href="img/Queen.ico">
+		<meta name="Keywords" content="魔方"/>
+		<meta name="Description" content="3D的你，值得拥有"/>
+		<style type="text/css">
+
+			body{
+				perspective: 2000px;/*视觉点距离*/
+			}
+			.mofang{
+				position: relative;
+				margin: 200px auto;
+				width: 300px;
+				height: 300px;
+				transform-style: preserve-3d;/*维持3D样式*/
+				/*animation: xuanzhuan 10s linear infinite alternate;*//*动画关键帧名字,时间,线性规律,永久循环(重复次数),是否反向运行*/
+				animation-name: xuanzhuan;
+				/*animation-delay: 2s;*//*动画延迟时间*/
+				animation-duration: 10s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+			}
+			.mofang .smoll-mofang{
+				position: relative;
+				margin: 200px auto;
+				width: 200px;
+				height: 200px;
+			}
+			@keyframes xuanzhuan{
+				from{
+					transform: rotate3d(1,1,0,0deg);
+				}
+				to{
+					transform: rotate3d(1,1,0,360deg);
+				}
+			}
+			.page{
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0.8;
+				width: 300px;
+				height: 300px;
+				transition: all 2s; 
+				border-radius:15px ;
+			}
+			.smoll-mofang .smoll-page{
+				position: absolute;
+				left: 0;
+				top: 75px;
+				opacity: 0.8;
+				width: 200px;
+				height: 200px;
+				transition: all 2s;
+				border-radius:15px ;
+			}
+			.top{
+				background: url(img/1.jpg);
+				transform: rotateX(90deg) translateZ(150px);
+				background-size: auto 100%;
+			}
+			 .mofang:hover .top{
+				transform:rotateX(90deg) translateZ(300px);
+			}
+			.bottom{
+				background: url(img/2.jpg);
+				transform: rotateX(-90deg) translateZ(150px);
+				background-size: auto 100%;
+			}
+			.mofang:hover .bottom{
+				transform: rotateX(-90deg) translateZ(300px);
+			}
+			.left{
+				background: url(img/3.jpg);
+				transform: rotateY(-90deg) translateZ(150px);
+				background-size: auto 100%;
+			}
+			.mofang:hover .left{
+				transform: rotateY(-90deg) translateZ(300px);
+			}
+			.right{
+				background: url(img/4.jpg);
+				transform: rotateY(90deg) translateZ(150px);
+				background-size: auto 100%;
+			}
+			.mofang:hover .right{
+				transform: rotateY(90deg) translateZ(300px);
+			}
+			.front{
+				background: url(img/5.jpg);
+				transform: translateZ(150px);
+				background-size: auto 100%;
+			}
+			.mofang:hover .front{
+				transform:translateZ(300px);
+			}
+			.back{
+				background: url(img/6.jpg);
+				transform: translateZ(-150px);
+				background-size: auto 100%;
+			}
+			.mofang:hover .back{
+				transform:translateZ(-300px);
+			}
+			.tops{
+				background: red;
+				transform: rotateX(90deg) translateZ(80px);
+			}
+			.mofang:hover .tops{
+				transform:rotateX(90deg) translateZ(200px);
+			}
+			.bottoms{
+				background: blue;
+				transform: rotateX(-90deg) translateZ(80px);
+			}
+			.mofang:hover .bottoms{
+				transform: rotateX(-90deg) translateZ(200px);
+			}
+			.lefts{
+				background: green;
+				transform: rotateY(-90deg) translateZ(80px);
+			}
+			.mofang:hover .lefts{
+				transform: rotateY(-90deg) translateZ(200px);
+			}
+			.rights{
+				background: purple;
+				transform: rotateY(90deg) translateZ(80px);
+			}
+			.mofang:hover .rights{
+				transform: rotateY(90deg) translateZ(200px);
+			}
+			.fronts{
+				background: black;
+				transform: translateZ(80px);
+			}
+			.mofang:hover .fronts{
+				transform:translateZ(200px);
+			}
+			.backs{
+				background: wheat;
+				transform: translateZ(-80px);
+			}
+			.mofang:hover .backs{
+				transform:translateZ(-200px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mofang">
+			<div class="smoll-mofang">
+				<div class="smoll-page tops"></div>
+				<div class="smoll-page bottoms"></div>
+				<div class="smoll-page lefts"></div>
+				<div class="smoll-page rights"></div>
+				<div class="smoll-page fronts"></div>
+				<div class="smoll-page backs"></div>
+			</div>
+			<div class="page top"></div>
+			<div class="page bottom"></div>
+			<div class="page left"></div>
+			<div class="page right"></div>
+			<div class="page front"></div>
+			<div class="page back"></div>
+		</div>
+	</body>
+</html>
